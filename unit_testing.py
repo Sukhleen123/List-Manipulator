@@ -3,6 +3,7 @@
 # This program tests the functionality of the List Manipulator class
 import unittest
 
+
 class ListManipulator:
     def __init__(self, list):
         self.list = list
@@ -38,19 +39,41 @@ class ListManipulator:
             self.list.pop(index - removed_count)
             removed_count += 1
 
+
 class TestMin(unittest.TestCase):
+
     def testmin(self):
         list = [1, 2, 3]
         value = ListManipulator(list).min()
         self.assertEqual(value, 1)
 
-class TestRemove(unittest.TestCase):
-    def testremove(self):
+    def testemptymin(self):
+        list = []
+        value = ListManipulator(list).min()
+        self.assertEqual(value, None)
+
+
+class TestMax(unittest.TestCase):
+
+    def testmax(self):
         list = [1, 2, 3]
+        value = ListManipulator(list).max()
+        self.assertEqual(value, 3)
+
+    def testemptymax(self):
+        list = []
+        value = ListManipulator(list).max()
+        self.assertEqual(value, None)
+
+
+class TestRemove(unittest.TestCase):
+
+    def testremove(self):
+        list = [1, 2, 3, 1, 4, 78, 1, 6, 7, 8]
         values = ListManipulator(list)
-        values.remove(1)
+        values.remove(5)
         for item in values.list:
             self.assertEqual(item, 1)
-            print()
 
 
+unittest.main()
