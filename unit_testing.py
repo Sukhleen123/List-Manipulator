@@ -1,3 +1,8 @@
+# Ritti Bhogal
+# Software Development Fundamentals Programming Lab 10
+# This program tests the functionality of the List Manipulator class
+import unittest
+
 class ListManipulator:
     def __init__(self, list):
         self.list = list
@@ -32,3 +37,20 @@ class ListManipulator:
         for index in to_remove:
             self.list.pop(index - removed_count)
             removed_count += 1
+
+class TestMin(unittest.TestCase):
+    def testmin(self):
+        list = [1, 2, 3]
+        value = ListManipulator(list).min()
+        self.assertEqual(value, 1)
+
+class TestRemove(unittest.TestCase):
+    def testremove(self):
+        list = [1, 2, 3]
+        values = ListManipulator(list)
+        values.remove(1)
+        for item in values.list:
+            self.assertEqual(item, 1)
+            print()
+
+
